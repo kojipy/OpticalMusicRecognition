@@ -19,11 +19,13 @@ xml = os.path.join(DATA_DIR, "lg-2267728-aug-beethoven--page-2.xml")
 bndboxes = util.xml2bndbox(xml)
 # pprint(bndboxes)
 
-with Image.open(img) as img:
-    draw = ImageDraw.Draw(img)
-    img_size = img.size
-    for bndbox in bndboxes:
-        bndbox[1:] = util.relative2absolute(bndbox[1:], img_size)
-        print(bndbox)
-        draw.rectangle(bndbox[1:], outline="red")
-    img.show()
+# with Image.open(img) as img:
+#     draw = ImageDraw.Draw(img)
+#     img_size = img.size
+#     for bndbox in bndboxes:
+#         bndbox[1:] = util.relative2absolute(bndbox[1:], img_size)
+#         print(bndbox)
+#         draw.rectangle(bndbox[1:], outline="red")
+#     img.show()
+
+util.show_bndboxes(img, bndboxes, to_absolute=True)
